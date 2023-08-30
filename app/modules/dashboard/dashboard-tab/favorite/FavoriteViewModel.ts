@@ -6,6 +6,7 @@ import { setUserUnFavorite } from "@app/store/actions/slice.action"
 const FavoriteViewModel = () => {
     const dispatch = useAppDispatch()
 
+    /** call function of unfavorite  */
     const unFavoriteCall = (item: UserResType) => {
         dispatch(setUserUnFavorite(item?.login?.username))
     }

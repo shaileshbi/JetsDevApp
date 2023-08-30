@@ -11,6 +11,7 @@ const HomeViewModel = () => {
     const dispatch = useAppDispatch();
     const favoriteUser = useAppSelector(state => state?.favoriteUser)
 
+     /** fetch the data using  api  */
     const homeUserApi = (result: number, pageSize: number) => {
         setLoader(true)
         Axios.get(`${BASE_URL}${result}&page=${pageSize}`).subscribe({
@@ -30,7 +31,7 @@ const HomeViewModel = () => {
             },
         })
     }
-
+/** call function for favorite or unfavorite item */
     const favClick = (item: UserResType) => {
         if (favoriteUser?.users?.find((elem: UserResType) => elem?.name?.first == item?.name?.first).status) {
             dispatch(setUserUnFavorite(item?.login?.username))
