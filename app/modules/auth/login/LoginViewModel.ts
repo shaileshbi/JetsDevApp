@@ -8,8 +8,14 @@ const LoginViewModel = ()=>{
 
 /** on Login event where set the login status   */
    const  onLoginClick = (values:loginType)=>{
-    dispatch(setUserLoginStatus(true)) 
-    Toast("Login Sucess", '', 'success')
+  
+    if(values.email=='reactnative@jetdevs.com' && values.password=='jetdevs@123'){
+        dispatch(setUserLoginStatus(true)) 
+        Toast("Login Sucess", '', 'success') 
+    }else{
+        Toast("Please enter the corrent email id and password", '', 'info') 
+    }
+   
     }
 
     return{
